@@ -1,5 +1,4 @@
 const {Post} = require('../models/models')
-const ApiError = require('../error/ApiError')
 
 class PostController {
     async create(req, res) {

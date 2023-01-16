@@ -1,6 +1,6 @@
 // noinspection ES6CheckImport
 
-import React, {useEffect} from "react";
+import React from "react";
 import { Col, Card } from "antd";
 import unknownUser from "../images/unknown_user.png";
 

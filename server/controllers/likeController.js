@@ -1,5 +1,4 @@
 const {Like} = require('../models/models')
-const ApiError = require('../error/ApiError')
 
 class LikeController {
     async create(req, res) {
