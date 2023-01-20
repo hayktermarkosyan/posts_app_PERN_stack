@@ -51,7 +51,7 @@ component the user can create new posts by entering text, as well as leave
 comments and likes under already created posts. Also in this component, the user
 can save the post he likes to himself in saved posts for further reading.
 
-###Saved posts
+### Saved posts
 
 ![saved_posts_page](docs/images/SavedPosts.png)
 
@@ -59,7 +59,7 @@ Saved posts are rendered at /saved in the SavedPosts component. This component
 displays all the posts that this user has saved for further reading. When you 
 click on a saved post, a modal window pops up for easier reading of the post.
 
-###User profile
+### User profile
 
 On the backend, users are stored in the database with columns for id, email, 
 password, name, phoneNum and img.
@@ -70,13 +70,25 @@ When Sign Up, the user enters only the email and password, and the rest of the
 data (name, phone number and image) can be added at /profile using the Profile 
 component.
 
+```
+async update(req, res) {
+        const {name, phoneNum} = req.body
+        const {id} = req.params
+        const {img} = req.files
+        let fileName = uuid.v4() + ".jpg"
+        await img.mv(path.resolve(__dirname, '..', 'static', fileName))
+        const user = await User.update({ name, phoneNum, img: fileName }, { where: {id}})
+        return res.json(user)
+    }
+```
+
 ![home_page](docs/images/Home.png)
 
 All information related to the user is rendered at / in the Home component.
 
 ## Future Directions for the Project
 
-###Attaching files
+### Attaching files
 
 In the future it is planned to add the ability to attach files (images, 
 videos, audio, etc.) when creating posts and comments.
