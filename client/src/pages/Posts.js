@@ -43,18 +43,19 @@ const Posts = ({users, user, posts, onRefresh}) => {
                             />
                             }
 
-                            {user && <CreateComment post={post} user={user} onRefresh={onRefresh} />}
+                            {user.email && <CreateComment post={post} user={user} onRefresh={onRefresh} />}
 
                             {(user !== null && post.userId === user.id) && <EditPost post={post} onRefresh={onRefresh} />}
 
-                            <LikePost
-                                post={post}
-                                user={user}
-                                likes={posts.like.filter(l => l.postId === post.id)}
-                                onRefresh={onRefresh}
-                            />
+                            {user.email && <LikePost
+                                                post={post}
+                                                user={user}
+                                                likes={posts.like.filter(l => l.postId === post.id)}
+                                                onRefresh={onRefresh}
+                                            />
+                            }
 
-                            {user &&
+                            {user.email &&
                             <SavePost
                                 post={post}
                                 user={user}

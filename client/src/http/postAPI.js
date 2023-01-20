@@ -20,8 +20,8 @@ export const createLike = async (like) => {
     return data
 }
 
-export const deleteLike = async (postId) => {
-    const {data} = await $authHost.delete('api/like', {data: { postId }})
+export const deleteLike = async (id) => {
+    const {data} = await $authHost.delete('api/like', {data: { id }})
     return data
 }
 

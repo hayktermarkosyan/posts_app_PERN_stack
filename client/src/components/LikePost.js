@@ -5,7 +5,7 @@ import unknownUser from "../images/unknown_user.png"
 import {createLike, deleteLike} from "../http/postAPI";
 
 const LikePost = ({post, likes, user, onRefresh}) => {
-
+console.log(likes)
     const items = likes.map(like => {
         return {
             label: (
@@ -49,7 +49,7 @@ const LikePost = ({post, likes, user, onRefresh}) => {
         formData.append('postId', post.id);
         try {
             if(likes.find(like => like.userId === user.id)) {
-                await deleteLike(likes.find(like => like.userId === user.id).postId)
+                await deleteLike(likes.find(like => like.userId === user.id).id)
                 onRefresh();
             } else {
                 await createLike(formData);

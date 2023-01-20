@@ -8,9 +8,9 @@ class LikeController {
     }
 
     async delete(req, res) {
-        const {postId} = req.body
+        const {id} = req.body
         await Like.destroy({
-            where: { postId },
+            where: { id },
         })
         return res.json()
     }

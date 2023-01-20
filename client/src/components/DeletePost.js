@@ -7,7 +7,7 @@ const DeletePost = ({post, likes, comments, savedPosts, onRefresh}) => {
 
     const handleDeletePost = async () => {
         try {
-            if (likes.length > 0) likes.map(async (like) => await deleteLike(like.postId));
+            if (likes.length > 0) likes.map(async (like) => await deleteLike(like.id));
             if (savedPosts.length > 0) savedPosts.map(async (sPost) => await deleteSavedPost(sPost.postId));
             if (comments.length > 0) comments.map(async (com) => await deleteComment(com.postId));
 
